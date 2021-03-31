@@ -1,4 +1,4 @@
-import { BOARD_SIZE } from "../../utilities/constances";
+import { BOARD_SIZE } from '../../utilities/constances';
 import * as Strings from '../../utilities/strings';
 
 export const isValid = (values) => {

@@ -1,9 +1,9 @@
-import { useRef } from "react";
+import { useRef } from 'react';
 
-import { BOARD_SIZE } from "../../utilities/constances";
+import { BOARD_SIZE } from '../../utilities/constances';
 import styles from './Controller.module.css';
-import Input from "./Input";
-import { isValid } from "./validations";
+import Input from './Input';
+import { isValid } from './validations';
 import * as Strings from '../../utilities/strings';
 
 const Controller = ({ handleOnAdd, handleOnRemove }) => {

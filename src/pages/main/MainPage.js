@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import Board from '../../components/Board';
-import Controller from "../../components/Controller";
+import Controller from '../../components/Controller';
 import { createBoard } from '../../utilities/helpers';
 import styles from './MainPage.module.css';
 
