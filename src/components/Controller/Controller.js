@@ -1,5 +1,10 @@
 import { useRef } from "react";
-import { _BOARD_SIZE } from "../../pages/main/MainPage";
+
+import { BOARD_SIZE } from "../../utilities/constances";
+import styles from './Controller.module.css';
+import Input from "./Input";
+import { isValid } from "./validations";
+import * as Strings from '../../utilities/strings';
 
 const Controller = ({ handleOnAdd, handleOnRemove }) => {
     const rowRef = useRef(null);
@@ -14,39 +19,39 @@ const Controller = ({ handleOnAdd, handleOnRemove }) => {
 
     const handleAdd = (e) => {
         const values = getValues(e);
+        const error = isValid(values);
+        if (error) return alert(error);
+
         handleOnAdd(values);
     }
 
     const handleRemove = (e) => {
         const values = getValues(e);
+        const error = isValid(values);
+        if (error) return alert(error);
+
         handleOnRemove(values);
     }
 
     return (
-        <div style={{ marginTop: '20px' }}>
-            <form>
-                <div>
-                    <label>row: </label>
-                    <input
-                        type='number'
-                        min={0}
-                        max={_BOARD_SIZE}
-                        ref={rowRef}
-                    />
-                </div>
-                <div>
-                    <label>column:</label>
-                    <input
-                        type='number'
-                        min={0}
-                        max={_BOARD_SIZE}
-                        ref={colRef}
-                    />
-                </div>
-                <button onClick={handleAdd}>Add</button>
-                <button onClick={handleRemove}>Remove</button>
-            </form>
-        </div>
+        <form className={styles.container}>
+            <Input
+                title={Strings.c_row}
+                type='number'
+                min={0}
+                max={BOARD_SIZE - 1}
+                ref={rowRef}
+            />
+            <Input
+                title={Strings.c_col}
+                type='number'
+                min={0}
+                max={BOARD_SIZE - 1}
+                ref={colRef}
+            />
+            <button onClick={handleAdd}>{Strings.c_add}</button>
+            <button onClick={handleRemove}>{Strings.c_remove}</button>
+        </form>
     )
 }
 
