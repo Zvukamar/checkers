@@ -4,3 +4,24 @@
     width: 40px;
     height: 40px;
 }
+
+@media only screen and (max-width: 440px) {
+    .figure {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    .figure {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media only screen and (max-width: 260px) {
+    .figure {
+        width: 10px;
+        height: 10px;
+    }
+}
