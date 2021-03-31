@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 
 import { BOARD_SIZE } from '../../utilities/constances';
 import styles from './Controller.module.css';
@@ -6,7 +6,7 @@ import Input from './Input';
 import { isValid } from './validations';
 import * as Strings from '../../utilities/strings';
 
-const Controller = ({ handleOnAdd, handleOnRemove }) => {
+const Controller = React.memo(({ handleOnAdd, handleOnRemove }) => {
     const rowRef = useRef(null);
     const colRef = useRef(null);
 
@@ -57,6 +57,6 @@ const Controller = ({ handleOnAdd, handleOnRemove }) => {
             </button>
         </form>
     )
-}
+});
 
 export default Controller;
