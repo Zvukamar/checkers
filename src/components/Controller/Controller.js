@@ -49,8 +49,12 @@ const Controller = ({ handleOnAdd, handleOnRemove }) => {
                 max={BOARD_SIZE - 1}
                 ref={colRef}
             />
-            <button onClick={handleAdd}>{Strings.c_add}</button>
-            <button onClick={handleRemove}>{Strings.c_remove}</button>
+            <button className={styles.button} onClick={handleAdd}>
+                {Strings.c_add}
+            </button>
+            <button className={styles.button} onClick={handleRemove}>
+                {Strings.c_remove}
+            </button>
         </form>
     )
 }

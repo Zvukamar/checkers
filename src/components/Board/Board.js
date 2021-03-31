@@ -6,7 +6,7 @@ const Board = ({ board }) => {
         <div className={styles.container}>
             {board.map((row, i1) => {
                 return (
-                    <div key={i1} style={{ display: 'flex' }}>
+                    <div key={i1} className={styles.row}>
                         {row.map((square, i2) => (
                             <Square
                                 key={`${i1}${i2}`}
