@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import Figure from '../figure';
+import Figure from '../Figure';
 import styles from './Square.module.css';
 
 const getClassName = (index) => {
