@@ -20,7 +20,11 @@ const MainPage = (props) => {
 
     const handleButtonClick = useCallback(([row, col], value) => {
         // Optimization
-        if (value && board[row][col]) return;
+        if (value && board[row][col]) {
+            return alert(Strings.c_bad_add_to_exists_field);
+        } else if (!value && !board[row][col]) {
+            return alert(Strings.c_bad_remove_from_empty_field);
+        }
 
         const newBoard = JSON.parse(JSON.stringify(board));
         newBoard[row][col] = value;
