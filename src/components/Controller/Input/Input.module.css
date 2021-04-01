@@ -1,9 +1,9 @@
-label {
+.title {
     display: inline-block;
     width: 65px;
 }
 
-input {
+.input_field {
     width: 65px;
 }
 

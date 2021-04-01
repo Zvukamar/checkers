@@ -11,7 +11,7 @@ const Board = ({ board }) => {
                             <Square
                                 key={`${i1}${i2}`}
                                 index={i1 + i2}
-                                isChecked={!!square}
+                                playerTurn={square}
                             />
                         ))}
                     </div>

@@ -6,7 +6,7 @@ import Input from './Input';
 import { isValid } from './validations';
 import * as Strings from '../../utilities/strings';
 
-const Controller = React.memo(({ handleOnAdd, handleOnRemove }) => {
+const Controller = React.memo(({ currentTurn, setCurrentTurn, handleOnAdd, handleOnRemove }) => {
     const rowRef = useRef(null);
     const colRef = useRef(null);
 
@@ -33,6 +33,10 @@ const Controller = React.memo(({ handleOnAdd, handleOnRemove }) => {
         handleOnRemove(values);
     }
 
+    const onChangeCurrentTurn = (e) => {
+        setCurrentTurn(e.target.value)
+    }
+
     return (
         <form className={styles.container}>
             <Input
@@ -48,6 +52,20 @@ const Controller = React.memo(({ handleOnAdd, handleOnRemove }) => {
                 min={0}
                 max={BOARD_SIZE - 1}
                 ref={colRef}
+            />
+            <Input
+                title={Strings.c_player_one}
+                type='radio'
+                value={Strings.c_player_one}
+                checked={currentTurn === Strings.c_player_one}
+                onChange={onChangeCurrentTurn}
+            />
+            <Input
+                title={Strings.c_player_two}
+                type='radio'
+                value={Strings.c_player_two}
+                checked={currentTurn === Strings.c_player_two}
+                onChange={onChangeCurrentTurn}
             />
             <button className={styles.button} onClick={handleAdd}>
                 {Strings.c_add}

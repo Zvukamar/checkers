@@ -1,8 +1,9 @@
 import styles from './Figure.module.css';
+import * as Strings from '../../../utilities/strings';
 
-const Figure = () => {
+const Figure = ({ playerTurn }) => {
     return (
-        <div className={styles.figure} />
+        <div className={playerTurn === Strings.c_player_one ? styles.playerOne : styles.playerTwo} />
     )
 }
 
