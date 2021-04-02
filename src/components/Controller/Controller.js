@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import Button from '@material-ui/core/Button';
 
 import { BOARD_SIZE } from '../../utilities/constances';
 import styles from './Controller.module.css';
@@ -12,8 +13,8 @@ const Controller = React.memo(({ currentTurn, setCurrentTurn, handleOnAdd, handl
 
     const getValues = (e) => {
         e.preventDefault();
-        const rowIndex = rowRef.current.value;
-        const colIndex = colRef.current.value;
+        const rowIndex = +rowRef.current.value;
+        const colIndex = +colRef.current.value;
         return [rowIndex, colIndex];
     }
 
@@ -67,12 +68,28 @@ const Controller = React.memo(({ currentTurn, setCurrentTurn, handleOnAdd, handl
                 checked={currentTurn === Strings.c_player_two}
                 onChange={onChangeCurrentTurn}
             />
-            <button className={styles.button} onClick={handleAdd}>
-                {Strings.c_add}
-            </button>
-            <button className={styles.button} onClick={handleRemove}>
-                {Strings.c_remove}
-            </button>
+
+            {/* Add Button */}
+            <span className={styles.button}>
+                <Button
+                    onClick={handleAdd}
+                    variant="outlined"
+                    color="primary"
+                >
+                    {Strings.c_add}
+                </Button>
+            </span>
+
+            {/* Remove Button */}
+            <span className={styles.button}>
+                <Button
+                    onClick={handleRemove}
+                    variant="outlined"
+                    color="primary"
+                >
+                    {Strings.c_remove}
+                </Button>
+            </span>
         </form>
     )
 });

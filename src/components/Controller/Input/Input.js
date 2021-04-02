@@ -14,6 +14,7 @@ const Input = React.memo(React.forwardRef(({ title, ...props }, ref) => {
                 {...props}
                 name={title}
                 ref={ref}
+                id={title}
             />
         </div>
     )
