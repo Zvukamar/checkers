@@ -1,11 +1,10 @@
 import * as types from './errorsTypes';
 
-const showErrorMessage = (message) => ({
+export const showErrorMessage = (message) => ({
     type: types.SHOW_ERROR_MESSAGE,
     message
 });
 
-const hideErrorMessage = (message) => ({
-    type: types.SHOW_ERROR_MESSAGE,
-    message
+export const hideErrorMessage = () => ({
+    type: types.HIDE_ERROR_MESSAGE
 });

@@ -1,7 +1,7 @@
 import * as types from './errorsTypes';
 
 const INITIAL_STATE = {
-    visible: false,
+    visible: null,
     message: ''
 };
 
@@ -17,7 +17,6 @@ const errorsReducer = (state = INITIAL_STATE, action) => {
         case types.HIDE_ERROR_MESSAGE: {
             return {
                 ...state,
-                message: '',
                 visible: false
             };
         }

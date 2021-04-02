@@ -1,0 +1,44 @@
+.container {
+    position: absolute;
+    top: 0;
+    background: #3f51b5;
+    padding: 10px 30px;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.message_text {
+    color: white;
+}
+
+@keyframes visible_animation {
+    0% {
+      transform: translateY(0px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(15px);
+      opacity: 1;
+    }
+}
+
+@keyframes hide_animation {
+    0% {
+      transform: translateY(15px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 0;
+    }
+}
+
+.popup_show {
+    animation: visible_animation 1s ease-out forwards;
+    -webkit-animation: visible_animation 1s ease-out forwards;
+}
+
+.popup_hide {
+    animation: hide_animation 1s ease-out forwards;
+    -webkit-animation: hide_animation 1s ease-out forwards;
+}

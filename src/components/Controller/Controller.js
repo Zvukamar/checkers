@@ -1,13 +1,17 @@
 import React, { useRef } from 'react';
 import Button from '@material-ui/core/Button';
+import { useDispatch } from 'react-redux';
 
 import { BOARD_SIZE } from '../../utilities/constances';
 import styles from './Controller.module.css';
 import Input from './Input';
 import { isValid } from './validations';
 import * as Strings from '../../utilities/strings';
+import { ErrorActions } from '../../store/actions';
 
 const Controller = React.memo(({ currentTurn, setCurrentTurn, handleOnAdd, handleOnRemove }) => {
+    const dispatch = useDispatch();
+
     const rowRef = useRef(null);
     const colRef = useRef(null);
 
@@ -21,7 +25,7 @@ const Controller = React.memo(({ currentTurn, setCurrentTurn, handleOnAdd, handl
     const handleAdd = (e) => {
         const values = getValues(e);
         const error = isValid(values);
-        if (error) return alert(error);
+        if (error) return dispatch(ErrorActions.showErrorMessage(error));
 
         handleOnAdd(values);
     }
@@ -29,7 +33,7 @@ const Controller = React.memo(({ currentTurn, setCurrentTurn, handleOnAdd, handl
     const handleRemove = (e) => {
         const values = getValues(e);
         const error = isValid(values);
-        if (error) return alert(error);
+        if (error) return dispatch(ErrorActions.showErrorMessage(error));
 
         handleOnRemove(values);
     }
