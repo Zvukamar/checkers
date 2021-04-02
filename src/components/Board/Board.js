@@ -1,4 +1,4 @@
-import Square from './Square';
+import Square from './square';
 import styles from './Board.module.css';
 
 const Board = ({ board }) => {

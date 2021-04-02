@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Figure from '../Figure';
+import Figure from '../figure';
 import * as Strings from '../../../utilities/strings';
 import styles from './Square.module.css';
 
